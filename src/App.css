@@ -1,0 +1,1282 @@
+/* *{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+
+}
+
+/* body{
+  background-color: #FAF8EE;
+  width: 100%;
+} */
+
+.nodecor{
+  text-decoration: none;
+  color: white;
+  font-family: sans-serif;
+}
+
+@font-face {
+  font-family: 'Istok Web';
+  src: url('path/to/istok-web.woff2') format('woff2'), /* Change the path to the actual location of your font files */
+       url('path/to/istok-web.woff') format('woff');
+  /* You can add additional font formats like .ttf or .otf if you have them */
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('path/to/inter.woff2') format('woff2'), /* Change the path to the actual location of your font files */
+       url('path/to/inter.woff') format('woff');
+  /* You can add additional font formats like .ttf or .otf if you have them */
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url('path/to/nunito.woff2') format('woff2'), /* Change the path to the actual location of your font files */
+       url('path/to/nunito.woff') format('woff');
+  /* You can add additional font formats like .ttf or .otf if you have them */
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Radio Canada';
+  src: url('path/to/radio-canada.woff2') format('woff2'), /* Change the path to the actual location of your font files */
+       url('path/to/radio-canada.woff') format('woff');
+  /* You can add additional font formats like .ttf or .otf if you have them */
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('path/to/poppins-medium.woff2') format('woff2'),
+       url('path/to/poppins-medium.woff') format('woff');
+  font-weight: 500; /* Adjust the font weight as needed */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  src: url('path/to/rubik-regular.woff2') format('woff2'),
+       url('path/to/rubik-regular.woff') format('woff');
+  font-weight: 400; /* Adjust the font weight as needed */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Rounded Mplus 1c';
+  src: url('path/to/rounded-mplus-1c.woff2') format('woff2'), /* Change the path to the actual location of your font files */
+       url('path/to/rounded-mplus-1c.woff') format('woff');
+  /* You can add additional font formats like .ttf or .otf if you have them */
+  font-weight: normal; /* Adjust the font weight as needed */
+  font-style: normal; /* Adjust the font style as needed */
+}
+
+@font-face {
+  font-family: 'Jaldi';
+  src: local('Jaldi'), url('path/to/your/font.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+/* ----------------NavBar-------------- */
+
+.navbar--nav{
+  display: flex;
+  align-items: center;
+  background-color: #2f2fea ;
+  color: #ffffff;
+  height: 7.2rem;
+  padding: 1.1rem;
+ 
+  
+}
+
+.navbar--div{
+   margin-left: 2rem;
+}
+
+.navbar--div h1{
+  font-family: 'Inter', sans-serif;
+  font-weight: bold;
+  font-size: 27px;
+  line-height: 30px;
+}
+.navbar--div p{
+  font-family: 'Nunito', sans-serif; 
+  font-weight: 600px;
+  font-size: 15px;
+  width: 19rem;
+}
+
+.navbar--ul{
+  display: flex;
+  align-items: flex-end;
+  list-style: none;
+  margin-left: 56.2vh
+}
+
+.navbar--ul li a{
+  
+
+  text-decoration: none;
+  font-family: 'Istok Web', sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+  padding: 9px;
+  color: #fff;
+}
+
+.navbar--ul li a:hover{
+  text-decoration: underline;
+ 
+}
+
+/* .navbar--ul li a:active{
+  text-decoration: underline;
+ 
+} */
+
+
+/*----------------- Recommender-----------------------*/
+
+.recommender--inner-div{
+
+  display: flex;
+  flex-direction: row;
+}
+
+
+.recommender--ul{
+  display: grid;
+  grid-template-columns: repeat(4 , 1fr) ;
+  grid-gap: 1rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+  color: black;
+  /* border: 2px solid brown; */
+  padding: 1rem;
+  width: 100%;
+}
+
+
+.recommender--ul-div{
+  margin : 20px ;
+  padding: 20px;
+  color: black ;
+  border: 1px solid rgb(36, 67, 190);
+}
+
+.recommender--outer-div{
+  margin : 20px ;
+  color: black
+  
+}
+
+.recommender--outer-div input{
+  border-radius: 10px;
+  /* float: right; */
+  width: 100%;
+  padding: 6px;
+  margin-top: 8px;
+  margin-right: 16px;
+  border: 1px solid #d3cfcf;
+  font-size: 17px;
+}
+
+
+/*----------------- Dashboard-----------------------*/
+
+
+
+.dashboard--main{
+   
+  display: flex;
+  background-color: transparent;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+  /* border: 2px solid red; */
+
+}
+.dashboard--first-div{
+
+  font-family: 'Inter', sans-serif;
+  font-size: 19px;
+  font-weight: 500px;
+  color: black;
+  width: 508px;
+}
+
+.dashboard--first-div h4{
+   line-height: 2rem;
+}
+
+
+.dashboard--second-div{
+
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  font-weight: 400px;
+  color:black;
+  background-color: #FFD788;
+  width: 508px;
+  height: 157px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2em 0 ;
+  /* position: absolute;
+  left: 26.1rem;
+  top: 12.1rem; */
+}
+
+/* .dashboard--second-div:hover{
+
+  transform:scale(1.03);
+  transition-timing-function: linear;
+  transition: transform 0.5s;
+  cursor: pointer;
+} */
+
+.dashboard--second-div button{
+
+  border: none;
+  padding: 6px 21px;
+  font-family: 'Inter', sans-serif;
+  font-weight: bold;
+  font-size: 19px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 4px #999191;
+  margin-right:3.2rem;
+  cursor: pointer;
+ 
+}
+
+.dashboard--course-details{
+  display: flex;
+  flex-direction: column;
+}
+
+.green{
+  color:#0A8A07;
+}
+
+.red{
+  color:#1f53b4;
+}
+
+
+/* -----------------Grievance----------------- */
+
+.box{
+
+  box-sizing: border-box;
+}
+
+.grievance--form {
+   color: balck;
+   font-family: 'Inter', sans-serif;
+   color:black;
+   height: 90%;
+   margin:  50px auto;
+   /* border: 2px solid blue; */
+
+}
+
+.grievance--form h4{
+
+  font-size: 24px;
+  margin-left: 26rem;
+  
+}
+
+.grievance--div{
+    width:535px;
+    height: 397px;
+    background-color: white;
+    border: 1px solid black;
+    margin: 22px 44px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 26rem;
+    padding: 4.2rem;
+
+}
+
+.grievance--form textarea{
+   display: block;
+   font-size: 20px;
+   width: 340px;
+   height: 227px;
+   margin-left: 9px;
+  
+}
+
+/* .grievance--form textarea ::placeholder{
+  font-family: 'Inter', sans-serif;
+  font-weight: normal;
+  font-size: 10px;
+
+} */
+
+.grievance--form button{
+  /* font-family: 'Inter', sans-serif; */
+  background-color: #312bac;
+  width:88px;
+  padding: 0.6rem;
+  border: none;
+  margin:9px;
+  color: white;
+  font-weight: 200px;
+  cursor: pointer;
+}
+
+
+/* --------------Login--------------- */
+
+.block{
+
+  display: block;
+}
+
+.login--header img{
+
+   width: 100%;
+   height: 7.7rem;
+   
+}
+
+.login--header{
+
+  position: relative;
+}
+
+.login--seva-satva{
+
+position: absolute;
+ top:1.5rem;
+ left: 1rem;
+  color: white;
+}
+
+.login--section{
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   margin-top: 70px;
+   font-weight: 12px;
+   justify-content: center;
+   align-items: center;
+   /* ===background-image: linear-gradient(90deg, #ffffff,#e2a4a4, #e47c7c, #f0d8d8);
+background-size: 400% 400%;
+animation: gradient 3s ease infinite; */
+}
+
+.login--form{
+ 
+   color:black;
+   display: flex;
+   flex-direction: column;
+   /* border: 2px solid red; */
+   align-items: center;
+   justify-content: center;
+   height: 90%;
+   width: 50%;
+   margin-left: 13rem;
+}
+
+.login--form h4{
+  font-family: 'Radio Canada', sans-serif;
+  font-size: 23px;
+  text-align: center;
+  margin-bottom: 21px;
+}
+
+.login--form label{
+  font-family: 'Radio Canada', sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+ 
+}
+
+.login--form button{
+  
+    background-color: #3038c7;
+    width: 15rem;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem;
+    margin-top: 12px;
+    font-family: sans-serif;
+    cursor: pointer;
+  
+}
+
+
+.login--form p{
+   
+  color: #595959;
+  margin-top: 12px;
+  font-size: 13px;
+}
+
+.login--form p a{
+   color: #1B3BE3;
+}
+
+.login--form-input-design, select{
+   
+  padding: 8px;
+  width: 15rem;
+  border-radius: 5px;
+  border: 1px solid black;
+  margin-bottom: 19px;
+}
+
+.login--form select{
+  width: 15rem;
+ 
+}
+
+.login--forget-label{
+  margin: 6px;
+  
+}
+
+.login--img{
+
+  /* border: 2px solid blue; */
+  height: 18rem;
+  margin-top: 26px;
+}
+
+
+/* --------------Register Admin------------- */
+
+.block{
+
+  display: block;
+}
+
+.register--section{
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   margin-top: 40px;
+   font-weight: 12px;
+   justify-content: center;
+   align-items: center;
+  
+}
+
+.register--form{
+ 
+   color:black;
+   display: flex;
+   flex-direction: column;
+   /* border: 2px solid red; */
+   align-items: center;
+   justify-content: center;
+   height: 90%;
+   width: 50%;
+   margin-left: 13rem;
+}
+
+.register--form img{
+
+  height: 30px;
+  display: block;
+  margin:auto;
+}
+
+.register--form h4{
+  font-family: 'Radio Canada', sans-serif;
+  font-size: 22px;
+  text-align: center;
+  margin-bottom: 21px;
+}
+
+.register--form label{
+  font-family: 'Radio Canada', sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.register--form button{
+  
+    background-color: #3097D1;
+    width: 4rem;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 0.5rem;
+    margin-top: 5px;
+    font-size: 11px;
+    margin-left: 5.2rem;
+    cursor: pointer;
+  
+}
+
+.register--form button a{
+    
+  text-decoration: none;
+  color: white;
+}
+
+
+.register--form p{
+   
+  color: #595959;
+  margin-top: 15px;
+  font-size: 13px;
+  margin-left: 1.1rem;
+}
+
+.register--form p a{
+   color: #1B3BE3;
+}
+
+.register--form-input-design{
+   
+  padding: 8px;
+  width: 15rem;
+  border-radius: 5px;
+  border: 1px solid black;
+  margin-bottom: 19px;
+}
+
+.register--form select{
+  width: 15rem;
+ 
+}
+
+.register--img{
+
+  height: 24rem;
+  margin-top: 26px 29px;
+}
+
+
+/* -----------Register Student----------- */
+
+.registerstudent--form label{
+  font-family: 'Radio Canada', sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.registerstudent--form h4{
+
+  font-size: 19px;
+  margin-bottom: 17px;
+}
+
+.registerstudent--form-input-design, select{
+   
+  padding: 7px;
+  width: 15rem;
+  border-radius: 5px;
+  border: 1px solid black;
+  margin-bottom: 13px;
+}
+
+
+/* ---------------Fill Choice------------- */
+
+.fillchoice--outerdiv{
+
+  display: grid;
+  grid-template-columns: 23% 78%;
+}
+
+.fillchoice--outerdiv aside{
+
+  /* border: 2px solid rebeccapurple; */
+  background-color: #4ebce3;
+  height: 100%;
+}
+
+.fillchoice--section{
+
+  
+  /* border: 2px solid red; */
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 3rem;
+}
+
+.fillchoice--section-p{
+  
+  font-family: 'Rubik', sans-serif;
+  font-size: 16px;
+  color: #1d3acd ;
+  font-weight: bold;
+  margin-top: 2rem;
+
+}
+
+.fillchoice--p{
+
+  margin-top: 0;
+  color:black;
+
+}
+
+.fillchoice--div{
+
+  border: 1px solid black;
+  width: 415px;
+  height: 450px;
+  margin: 9px;
+  padding: 1.6rem 5.2rem;
+  background-color:rgb(255, 252, 248);
+
+}
+
+.fillchoice--aside{
+   padding: 2rem 1rem;
+   /* background-color: blue; */
+  
+}
+
+.fillchoice--div h4{
+  font-family: 'Rounded Mplus 1c', sans-serif;
+  font-size: 21px;
+  margin-bottom: 19px;
+}
+
+.fillchoice--label
+{
+  font-family: 'Radio Canada', sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  display: block;
+}
+
+
+.fillchoice--input
+{
+
+  padding: 8px;
+  width: 16rem;
+  border-radius: 5px;
+  border: 1px solid black;
+  margin-bottom: 30px;
+
+}
+
+.fillchoice--ul{
+
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+
+  }
+
+  .fillchoice-draggable-li{
+
+  }
+
+
+.fillchoice--li{
+
+  position: relative;
+  padding: 5px;
+  list-style: none;
+  cursor: pointer;
+  margin: 0.5rem;
+}
+
+
+.fillchoice--li-img{
+
+  height: 43px;
+  width: 125px;
+  /* width:fit-content;
+  height: fit-content; */
+  display: block;
+  z-index: 1;
+  border-radius: 5px;
+  filter:brightness(0.8);
+  
+}
+
+
+.fillchoice--li-img-two{
+
+  height: 53px;
+  width: 145px;
+  /* width:fit-content;
+  height: fit-content; */
+  display: block;
+  z-index: 1;
+  border-radius: 5px;
+  filter:brightness(0.8);
+  
+}
+
+.fillchoice--li-span{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 16px;
+  z-index: 10;
+  text-align: center;
+  /* line-height: 1; */
+}
+
+.fillchoice--draggable-span{
+ 
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  font-size: 16px;
+  z-index: 10;
+  text-align: center;
+
+}
+
+.fillchoice--li-span-two{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 16px;
+  z-index: 10;
+  text-align: center;
+
+}
+
+.fillchoice--draggable-span-two
+{
+  position: absolute;
+  top: 50%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+  font-size: 16px;
+  z-index: 10;
+  text-align: center;
+}
+
+
+
+
+.preferences
+{
+  height: 250px;
+  color: white;
+  position: relative;
+
+}
+
+.fillchoice--button{
+
+    background-color: #3097D1;
+    background-color: #D14D30;;
+    width: 4rem;
+    border: none;
+    border-radius: 5px;
+    padding: 0.6rem 0.6rem;
+    margin-top: 5px;
+    font-size: 11px;
+    margin-left: 5.2rem;
+    cursor: pointer;
+    color:white;
+}
+
+
+/* -----------Students NotAlloted---------- */
+
+.wrapper{
+  background-color: #FAF8EE;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: black;
+}
+
+.heading1{
+  color: black;
+  font-size: 21px;
+  margin:4rem 21rem;
+  margin-bottom: 5px;
+}
+
+.container
+{
+  border:1px solid black ;
+  height: 400px;
+  width: 700px;
+  
+}
+.heading2{
+  padding-top: 45px;
+  padding-left:59px;
+  font-size:21px;
+  font-weight: bolder;
+  
+}
+
+.details{
+  background-color: #FFD788;
+  margin-left: 60px;
+  margin-right: 60px;
+  padding-top: 0;
+  height: 222px;
+ margin-bottom: 20px;
+  
+}
+.details h2{
+  font-size: 22px;
+      font-weight: bolder;
+      padding-top: 30px;
+      padding-left: 50px; 
+  margin-bottom: 30px;
+}
+
+.details p{
+
+  padding-left: 50px;
+  margin-bottom: -7px;
+  margin-top: 20px;
+  font-size: 20px;
+  color: black;
+  font-weight: 900;
+
+}
+
+.coursenotalloted--button{
+    
+  padding-left: 2px;
+}
+
+.btn{
+  cursor: pointer;
+  width: 150px;
+  height: 32px;
+  margin-left: 60px;
+  font-size: 20px;
+  padding: 5px;
+  background-color: rgb(15, 77, 232);
+  color: white;
+  /* padding: 0.8rem 2.3rem; */
+  box-shadow: 5px 5px 7px 0px black;
+  position: relative;
+  width: 150px;
+
+}
+
+/* .btn::before {
+  content: "";
+  background-color: #1f1f1f;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: all 0.8s;
+  z-index: -1;
+} */
+
+/* .btn:hover::before {
+  transform: scaleX(1);
+} */
+
+
+/* ---------------Admin Navbar---------------- */
+
+.admin-navbar--ul{
+     margin-left: 82vh;
+}
+
+
+/* -------------All Course & Edit Course------------- */
+
+
+.allcourse--main{  
+  color: white;
+  padding: 74px ;
+  /* display: grid;
+  gap : 10em;
+  grid-template-columns: repeat(4, auto); */
+  display: flex;
+  align-items: center;
+  justify-content: space-around; 
+  flex-wrap: wrap;
+  /* margin: 40px ; */
+  box-sizing: border-box;
+  /* border: 2px solid sienna; */
+}
+
+/* .allcourse--main :hover{
+
+  transform:scale(1.005);
+  transition-timing-function: linear;
+  transition: transform 0.5s;
+  cursor: pointer;
+} */
+
+
+.allcourse--div {
+
+  position: relative;
+  margin: 21px 33px;
+  /* border: 2px solid red ; */
+  /* height: 10em;
+  width: 10em; */
+
+}
+
+.editcourses--div{
+  position: relative;
+  margin: 9px 33px;
+}
+
+/* 
+ .allcourse--div :hover{
+
+  transform:scale(1.005);
+  transition: transform 0.5s; 
+  cursor: pointer;
+}  */
+
+.allcourse--innerdiv p{
+  
+    padding-left: 4px;
+}
+
+
+.allcourse--div-img {
+  width: 229px;
+  height: 250px;
+  border-radius: 10px;
+  filter: brightness(70%);
+  z-index: -1;
+  opacity: 0.85;
+}
+
+.editcourses--div img{
+  width: 227px;
+  height: 259px;
+  border-radius: 10px;
+  filter: brightness(70%);
+  z-index: -1;
+}
+
+
+.allcourse--innerdiv{
+    
+  background-color: transparent;
+  /* border: 2px solid blue; */
+  font-family: 'Istok Web',sans-serif;
+  z-index: 10;
+  position: absolute;
+  top: 60px;
+  left: 13px;
+  opacity: 88%;
+}
+
+.allcourse--innerdiv hr{
+   
+   width: 200px;
+   height: 2px;
+   background: white;
+   border: none;
+   opacity: 85%;
+   margin: 1rem 0rem;
+   
+}
+
+
+.allcourse--innerdiv button{
+
+  /* padding: 1rem;
+ 
+  border-radius: 20px;
+  font-weight: 700;
+  border: none;
+  background-color: #4391D9;
+  color: white;
+  width: 6rem;
+  height: 2rem; */
+
+  background-color:  #3097D1;
+  margin: 3px;
+border: none;
+padding:  8px 9px;
+border-radius: 10px;
+margin: 0.5rem;
+color: white;
+width: 5rem;
+opacity: 100%;
+box-shadow: 2px 2px 4px #201919;
+cursor: pointer;
+}
+
+.allcourse--innerdiv button:hover {
+  /* background-color: #2980b9;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  
+  
+  background-color: #376980;
+  transform-origin: left;
+  transition: all 0.8s;
+  
+}
+
+.allcourse--innerdiv button a{ 
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+}
+
+.allcourse--bottom--div{
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  /* border : 5px solid black */
+  
+}
+
+
+.allcourse--bottom--div img{
+    height: 25px;
+    width: 25px;
+    /* margin: 1rem; */
+    /* margin-left: 5px; */
+
+}
+
+
+.bold{
+
+  font-weight: bold;
+}
+
+.allcourse--innerdiv input{
+
+  padding: 2px;
+  margin: 2px;
+}
+
+.createcourse--button{
+background-color:  #3097D1;
+border: none;
+padding:  7px 9px;
+border-radius: 5px;
+color: white;
+cursor: pointer;
+
+}
+
+.create-course_bg{
+  margin: 0;
+  padding: 0;
+  height: 50rem;
+  width: 90vw;
+  background: rgb(246,246,247);
+  background: linear-gradient(90deg, rgba(246,246,247,1) 7%, rgba(253,168,176,1) 96%, rgba(255,147,156,1) 100%); 
+}
+
+.create-course__flex{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spacing{
+  top: 120px;
+  left: 13px;
+}
+
+.student--allcourses-img{
+
+  width: 224px;
+  height: 280px;
+  border-radius: 10px;
+  filter: brightness(70%);
+  z-index: -1;
+  opacity: 0.85;
+}
+
+.student--allcourses-img :hover{
+  
+  
+  transform:scale(1.005);
+  transition: transform 0.5s; 
+  cursor: pointer;
+}
+
+
+/* -----------AdminGrievance----------- */
+
+
+.admingrievance--outermost-div{
+   display: block;
+   margin: auto;
+}
+
+.admingrievance--main-div{
+
+     /* border: 2px solid red; */
+     display: flex;
+     display: grid;
+     grid-template-columns: 1fr 1fr;
+     /* flex-direction: row; */
+     flex-wrap: wrap;
+     padding: 2rem;
+     /* justify-content: flex-start; */
+     justify-content: center;
+     align-items: center;
+     margin: 1.5rem 12.5rem;
+} 
+
+.admingrievance--sub-div{
+
+  /* border: 2px solid blue; */
+  background-color: #FFD788;
+  width:399px;
+  height: 122px;
+  color: black;
+  font-family: 'Istok Web', sans-serif;
+  font-weight: bolder;
+  border-radius: 10px;
+  box-shadow: 3px 3px 4px #b1adad;
+  margin: 1rem 3rem;
+  position: relative;
+
+}
+
+.admingrievance--main-div button {
+  background-color :rgb(15, 77, 232);
+  color: #fff;
+  border:none; 
+  border-radius:10px; 
+  padding:15px;
+  min-height:30px; 
+  min-width: 120px;
+  font-weight: bold;
+}
+
+.admingrievance--main-div button:hover {
+  background-color : #6da1fa;
+  transition: 0.7s;
+}
+
+.admingrievance--main-div button a {
+  text-decoration: none;
+}
+
+.admingrievance--p-div{
+  position: absolute;
+  /* border: 2px solid saddlebrown; */
+  top: 1.6rem;
+  left:2rem;
+
+
+}
+
+/* ---------Admin GrievancePage--------- */
+
+
+.grievancepage--main{
+   
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top:2rem;
+  color: black;
+}
+
+
+.grievancepage--div
+{
+  background-color: #FFD788;
+  width:650px;
+  height: 20em;
+  color: black;
+  font-family: 'Istok Web', sans-serif;
+  font-weight: bolder;
+  border-radius: 10px;
+  box-shadow: 3px 3px 4px #b1adad;
+  margin: 1rem;
+  position: relative;
+}
+
+.grievancepage--p-div{
+  position: relative;
+  /* top: 1rem; */
+  padding: 3rem;
+
+}
+
+.grievancepage--botom-right{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-right: 5em ;
+}
+
+.space{
+  margin-top: 1rem;
+  
+}
+
+.justify{
+
+  text-align: justify;
+  font-weight: bold;
+}
+
+.grievancepage--form{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 10px 0 0 0 ;
+}
+
+.grievancepage--button{
+  width: 120px;
+  height:43px;
+  margin: 0 0 0 10em;
+  background-color: #0d54c7;
+  color: white;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  border-radius: 5px;
+  /* position: relative; */
+  /* left:15rem; */
+  cursor: pointer;
+}
+
+.grievancepage--button:hover {
+  background-color : #4679f0;
+  transition: 0.7s;
+}
+
+
+/* -----------Admin NotAlloted-----------*/
+
+.notalloted--table{
+    border: 1px solid black;
+}
+
