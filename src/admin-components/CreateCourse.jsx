@@ -1,153 +1,118 @@
 import React, { useState } from 'react'
-import cookingImg from '../images/cooking.png'
 import uploadImg from '../images/uploadImg.png'
-import updateImg from '../images/update.png'
-import deleteImg from '../images/delete.png'
-import { useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
-import axios from "axios"
-import loginImage from "../images/login.png"
+import axios from 'axios'
 
-// const CreateCourse = ({ input, setInput, saveHandler }) => {
 const CreateCourse = () => {
-
-  const [courseName, setCourseName] = useState([])
-  const [intake, setIntake] = useState()
-  const [profName, setProfName] = useState()
-  const [image, setImage] = useState("")
+  const [courseName, setCourseName] = useState('')
+  const [intake, setIntake] = useState('')
+  const [profName, setProfName] = useState('')
+  const [image, setImage] = useState(null)
   const [redirect, setRedirect] = useState(false)
 
   const navigate = useNavigate()
 
-  // // const {coursename, intake, instructor, image}= input
-  // const inputRef = useRef(null);
-
-
-
-  // const handleImageClick = () => {
-  //   inputRef.current.click();
-  // }
-
-
-
-  // const handleImageChange = (event) =>
-  // {
-  //    const file=event.target.files[0];
-  //    const imageUrl = URL.createObjectURL(file)
-
-  //    console.log(file);
-  //   setInput(prevInputText =>(
-  //     {
-  //       ...prevInputText,
-  //       image: imageUrl
-  //     }
-  //   )
-  //   )
-  // }
-
-
-  // function handleChange(event) {
-  //   const { name, value, type } = event.target
-  //   setInput(prevInputText => ({
-  //     ...prevInputText,
-  //     [name]: value,
-
-  //   }))
-
-  // }
-
   const saveHandler = async (event) => {
-    const data = new FormData();
+    event.preventDefault()
+    const data = new FormData()
+    data.set('name', courseName)
+    data.set('intake_Capacity', intake)
+    data.set('prof_Incharge', profName)
+    if (image) data.set('Imagefile', image[0])
 
-    // dbNames , useState state name 
-    data.set('name', courseName);
-    data.set('intake_Capacity', intake);
-    data.set('prof_Incharge', profName);
-    data.set('Imagefile', image[0]);
-
-    console.log("Files uploaded are [from CreateCourse]: ")
-    console.log(image[0].name)
-    console.log(data)
-
-    event.preventDefault();
-
-    await axios.post('http://localhost:4000/course/addCourse', data)
-      .then((response) => {
-        alert("Course created successfully !! ")
-        console.log(response.data)
-        setRedirect(true)
-      })
-      .catch((error) => {
-        alert("error !! Error encountered while creating post !! ")
-        console.log(error.message)
-      })
+    try {
+      await axios.post('http://localhost:4000/course/addCourse', data)
+      alert('Course created successfully !!')
+      setRedirect(true)
+    } catch (error) {
+      alert('Error encountered while creating course !!')
+      console.log(error.message)
+    }
   }
 
   if (redirect) {
-    navigate("/allcourses")
+    navigate('/allcourses')
   }
 
-
   return (
-
-    // <div className='create-course_bg'>
-    <div>
-      <div className='create-course__flex'>
-        <form className="allcourse--main">
-          <div className="editcourses--div">
-
-            {/* <div onClick={handleImageClick} style={{ border: "2px solid red" }}> */}
-            <div >
-
-              {image ? <img src={"../images/" + image[0].name} alt="" /> : <img src={uploadImg} alt="" />}
-              {image && console.log("../images/" + image[0].name)}
-
-              {/* <input type="file" ref={inputRef} onChange={handleImageChange} style={{ display: "none" }} /> */}
-              {/* <input type="file" style={{ display: "none" }} /> */}
-            </div>
-
-            <div className="allcourse--innerdiv">
-              <hr />
-
-              <input type="text"
-                placeholder='Course Name ...'
-                value={courseName}
-                // name="courseName"
-                onChange={ev => setCourseName(ev.target.value)}
-              />
-
-              <input type="text"
-                placeholder='Intake Capacity ...'
-                value={intake}
-                // name="intake"
-                onChange={ev => setIntake(ev.target.value)}
-              />
-
-
-              <input type="text"
-                placeholder='Instructor Name ...'
-                value={profName}
-                // name="profName"
-                onChange={ev => setProfName(ev.target.value)}
-              />
-            </div>
-
-            {/* coverImage */}
-            <input type="file"
-              onChange={ev => setImage(ev.target.files)} />
-
-
-            <div>
-              <button className="createcourse--button" onClick={saveHandler}>Save Course</button>
-            </div>
-
+    <div className="flex justify-center items-center min-h-screen bg-gray-100 p-6">
+      <div className="bg-white rounded-lg shadow-lg w-full max-w-lg p-8">
+        <h1 className="text-5xl font-bold text-center mb-6 text-black">Create Course</h1>
+        <form onSubmit={saveHandler}>
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-medium mb-2" htmlFor="courseName">
+              Course Name
+            </label>
+            <input
+              type="text"
+              id="courseName"
+              placeholder="Enter course name"
+              value={courseName}
+              onChange={(ev) => setCourseName(ev.target.value)}
+              className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
           </div>
 
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-medium mb-2" htmlFor="intake">
+              Intake Capacity
+            </label>
+            <input
+              type="text"
+              id="intake"
+              placeholder="Enter intake capacity"
+              value={intake}
+              onChange={(ev) => setIntake(ev.target.value)}
+              className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-medium mb-2" htmlFor="profName">
+              Instructor Name
+            </label>
+            <input
+              type="text"
+              id="profName"
+              placeholder="Enter instructor name"
+              value={profName}
+              onChange={(ev) => setProfName(ev.target.value)}
+              className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-medium mb-2" htmlFor="image">
+              Course Image
+            </label>
+            <input
+              type="file"
+              id="image"
+              onChange={(ev) => setImage(ev.target.files)}
+              className="w-full text-sm text-gray-500 file:py-2 file:px-4 file:border file:border-gray-300 file:rounded-md file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+            />
+            {image && (
+              <div className="mt-4 flex justify-center">
+                <img
+                  src={URL.createObjectURL(image[0])}
+                  alt="Course Preview"
+                  className="w-32 h-32 object-cover rounded-md shadow-lg"
+                />
+              </div>
+            )}
+          </div>
+
+          <div className="flex justify-center">
+            <button
+              type="submit"
+              className="bg-blue-500 text-white py-2 px-4 rounded-md shadow-lg hover:bg-blue-600 transition-colors duration-300"
+            >
+              Save Course
+            </button>
+          </div>
         </form>
-        {/* <img src={loginImage} alt="loginImage" className='login--img' /> */}
       </div>
     </div>
-
   )
 }
 

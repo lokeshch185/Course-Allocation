@@ -1,42 +1,48 @@
 import React from "react";
 import NavBar from "./NavBar";
-import { nanoid } from "nanoid";
-import axios from "axios"
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 export default function Grievance() {
-  const [grievanceData, setGrievanceData] = React.useState([]);
-  const nav = useNavigate()
+  const [grievanceData, setGrievanceData] = React.useState("");
+  const navigate = useNavigate();
 
   async function handleSubmit(event) {
-      event.preventDefault();
-      console.log(grievanceData)
-      const query = grievanceData
-      await axios.post("http://localhost:4000/grievance/addGrievance" , {query} , {withCredentials : true})
-      .then((response) => {
-        alert("Grievance form submitted successfully")
-        nav("/dashboard")
-      })
-      .catch((error) => {
-        alert("Error While Submitting Grievance")
-      })
+    event.preventDefault();
+    try {
+      await axios.post("http://localhost:4000/grievance/addGrievance", { grievance: grievanceData }, { withCredentials: true });
+      alert("Grievance form submitted successfully");
+      navigate("/dashboard");
+    } catch (error) {
+      alert("Error While Submitting Grievance");
+    }
   }
 
   return (
     <>
       <NavBar />
-      <form onSubmit={handleSubmit} className="grievance--form">
-        <h4>Grievance form</h4>
-        <div className="grievance--div">
-          <textarea
-            placeholder="Enter your grievance"
-            name="grievance"
-            onChange={ev => setGrievanceData(ev.target.value)}
-            value={grievanceData}
-          />
-          <button>SUBMIT</button>
+      <main className="min-h-screen bg-gray-100 flex items-center justify-center px-4 sm:px-6 lg:px-8 mt-0">
+        <div className="max-w-lg w-full bg-white p-8 rounded-lg shadow-lg">
+          <h1 className="text-2xl font-semibold text-gray-800 mb-6">Submit Your Grievance</h1>
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div>
+              <textarea
+                placeholder="Enter your grievance here..."
+                name="grievance"
+                onChange={(ev) => setGrievanceData(ev.target.value)}
+                value={grievanceData}
+                className="w-full h-40 p-3 border border-gray-300 rounded-md shadow-sm resize-none focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-200"
+              />
+            </div>
+            <button
+              type="submit"
+              className="w-full py-3 bg-indigo-500 text-white font-semibold rounded-lg shadow hover:bg-indigo-600 transition duration-300"
+            >
+              Submit
+            </button>
+          </form>
         </div>
-      </form>
+      </main>
     </>
   );
 }

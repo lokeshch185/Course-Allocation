@@ -1,53 +1,61 @@
-import React , { useState , useEffect}from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import cookingImg from "../images/cooking.png";
-import addImg from "../images/add.png";
-import updateImg from "../images/update.png";
-import deleteImg from "../images/delete.png";
 import NavBar from "../student-components/NavBar";
-import { Link } from "react-router-dom";
 import axios from "axios";
 
-export default function AllCoursesStudent(props) {
-
+export default function AllCoursesStudent() {
   const navigate = useNavigate();
-  const [courses, setCourses] = useState([])
+  const [courses, setCourses] = useState([]);
 
-  useEffect((() => {
-    axios.get("http://localhost:4000/course/allAvilableCourse")
+  useEffect(() => {
+    axios
+      .get("http://localhost:4000/course/allAvilableCourse")
       .then((response) => {
-        setCourses(response.data.courseDocs)
+        setCourses(response.data.courseDocs);
       })
-  }), [])
+      .catch((error) => {
+        console.log("Error fetching courses:", error.message);
+      });
+  }, []);
 
-  function handleClick(id)
-  {
-     navigate(`/studentsenrolled/${id}`)
+  function handleClick(id) {
+    navigate(`/studentsenrolled/${id}`);
   }
-
-  // const { courses } = props;
 
   return (
     <>
       <NavBar />
-      {/* <div className="allcourse"> */}
-        <main className="allcourse--main">
-          {
-            courses.map((course) => (
-              <div className="allcourse--div" key={course._id} onClick= {()=>handleClick(course._id)}>
-                <img className="student--allcourses-img"src={'http://localhost:4000/' + course.Imagefile || cookingImg} alt="course cover image" />
-                <div className="allcourse--innerdiv spacing">
-                  <hr />
-                  <p className="bold">{course.name}</p>
-                  <p>Intake capacity: {course.intake_Capacity}</p> 
-                  <p>Current Enrolled: {course.current_Enrolled_Count}</p> 
-                  <p>Incharge: {course.prof_Incharge}</p>
-                  {/* <button><Link to={`/studentsenrolled/${course._id}`}>Course Details</Link></button> */}
-                </div>
-              </div>
-            ))}
-        </main>
-      {/* </div> */}
+      <main className="flex flex-wrap justify-center p-6 gap-6 bg-gray-100">
+        {courses.map((course) => (
+          <div
+            className="bg-white rounded-lg shadow-lg overflow-hidden w-72 h-96 transition-transform transform hover:scale-105 cursor-pointer"
+            key={course._id}
+            onClick={() => handleClick(course._id)}
+          >
+            <img
+              className="h-40 w-full object-cover"
+              src={`http://localhost:4000/${course.Imagefile}` || cookingImg}
+              alt="course cover"
+            />
+            <div className="p-6">
+              <h2 className="text-2xl font-bold text-gray-800 mb-2">
+                {course.name}
+              </h2>
+              <p className="text-gray-600 mb-1">
+                Intake Capacity: {course.intake_Capacity}
+              </p>
+              <p className="text-gray-600 mb-4">
+                Current Enrolled: {course.current_Enrolled_Count}
+              </p>
+              <p className="text-gray-600 mb-4">
+                Incharge: {course.prof_Incharge}
+              </p>
+              <hr className="mb-4" />
+            </div>
+          </div>
+        ))}
+      </main>
     </>
   );
 }

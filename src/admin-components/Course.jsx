@@ -6,7 +6,7 @@ const Course = ({id, coursename,image, intake, instructor, editHandler, deleteHa
  
  return (
          
-  <div className="editcourses--div">
+  <div className="editcourses--div ">
       <img src={image || cookingImg} alt="cooking image" />
       <div className="allcourse--innerdiv">
         <hr />

@@ -1,0 +1,4 @@
+.slight-blur {
+    filter: blur(1px);
+    transition: filter 0.3s ease-in-out;
+}

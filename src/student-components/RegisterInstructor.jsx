@@ -31,14 +31,6 @@ export default function RegisterInstructor() {
 
   return (
     <>
-      <header className="login--header">
-        <img src={headerImage} alt="header" />
-        <div className="navbar--div login--seva-satva">
-          <h1>Course Allocation </h1>
-          <p>Your Pathway to success</p>
-        </div>
-      </header>
-
       <section className="register--section">
         <form onSubmit={handleSubmit} className="register--form">
           <div>
