@@ -26,10 +26,10 @@ export default function AllCoursesStudent() {
   return (
     <>
       <NavBar />
-      <main className="flex flex-wrap justify-center p-6 gap-6 bg-gray-100">
+      <main className="flex flex-wrap justify-center p-6 gap-6 bg-gray-200">
         {courses.map((course) => (
           <div
-            className="bg-white rounded-lg shadow-lg overflow-hidden w-72 h-96 transition-transform transform hover:scale-105 cursor-pointer"
+            className="bg-slate-100 rounded-lg shadow-lg overflow-hidden w-72 h-96 transition-transform transform hover:scale-105 cursor-pointer"
             key={course._id}
             onClick={() => handleClick(course._id)}
           >

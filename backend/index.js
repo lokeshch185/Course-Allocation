@@ -10,7 +10,7 @@ const courseRouter = require("./routes/Course")
 const connectDB = require("./db/connect")
 const port = process.env.PORT
 
-app.use(cors({ credentials: true, origin: "http://localhost:5173" }))
+app.use(cors({ credentials: true, origin: ["http://localhost:5173","http://localhost:5174"]}))
 app.use(express.json())
 app.use(cookieParser())
 // __dirname == file path of backend folder 

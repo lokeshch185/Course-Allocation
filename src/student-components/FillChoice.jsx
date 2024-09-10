@@ -227,7 +227,7 @@ export default function FillChoice(props) {
                 )}
               </Droppable>
             </div>
-            <button type="submit" className="fillchoice--button" onClick={submitPrefernce}>SUBMIT</button>
+            <button type="submit" className="fillchoice--button" onClick={submitPrefernce}>SUBMIT    </button>
           </section>
         </DragDropContext >
       </div >

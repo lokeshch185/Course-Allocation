@@ -21,7 +21,7 @@ export default function Grievance() {
   return (
     <>
       <NavBar />
-      <main className="min-h-screen bg-gray-100 flex items-center justify-center px-4 sm:px-6 lg:px-8 mt-0">
+      <main className="min-h-screen bg-gray-200 flex items-center justify-center px-4 sm:px-6 lg:px-8 mt-0">
         <div className="max-w-lg w-full bg-white p-8 rounded-lg shadow-lg">
           <h1 className="text-2xl font-semibold text-gray-800 mb-6">Submit Your Grievance</h1>
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -31,12 +31,12 @@ export default function Grievance() {
                 name="grievance"
                 onChange={(ev) => setGrievanceData(ev.target.value)}
                 value={grievanceData}
-                className="w-full h-40 p-3 border border-gray-300 rounded-md shadow-sm resize-none focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-200"
+                className="w-full h-40 p-3 border border-gray-300 rounded-md shadow-sm resize-none focus:outline-none focus:ring-2 focus:ring-slate-500 transition duration-200"
               />
             </div>
             <button
               type="submit"
-              className="w-full py-3 bg-indigo-500 text-white font-semibold rounded-lg shadow hover:bg-indigo-600 transition duration-300"
+              className="w-full py-3 bg-slate-500 text-white font-semibold rounded-lg shadow hover:bg-slate-600 transition duration-300"
             >
               Submit
             </button>

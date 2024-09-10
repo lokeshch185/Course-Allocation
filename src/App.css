@@ -589,217 +589,197 @@ animation: gradient 3s ease infinite; */
 
 /* ---------------Fill Choice------------- */
 
-.fillchoice--outerdiv{
-
+.fillchoice--outerdiv {
   display: grid;
-  grid-template-columns: 23% 78%;
+  grid-template-columns: 23% 77%; /* Adjusted to match the grid layout */
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #e4e4e7;
 }
 
-.fillchoice--outerdiv aside{
-
-  /* border: 2px solid rebeccapurple; */
-  background-color: #4ebce3;
+.fillchoice--outerdiv aside {
+  background-color: #3a3a3a; /* Purple background */
   height: 100%;
+  padding: 1rem;
+  border-radius: 0.5rem; /* Rounded corners */
 }
 
-.fillchoice--section{
-
-  
-  /* border: 2px solid red; */
+.fillchoice--section {
   color: black;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 3rem;
+  margin: 2rem;
+  padding: 1rem;
+  border: 1px solid #ddd; /* Light border for separation */
+  border-radius: 0.5rem; /* Rounded corners */
+  background-color:#3a3a3a; /* White background */
 }
 
-.fillchoice--section-p{
-  
+.fillchoice--section p {
   font-family: 'Rubik', sans-serif;
-  font-size: 16px;
-  color: #1d3acd ;
+  font-size: 1rem; /* Font size adjusted to fit the design */
+  color: #ffffff;
   font-weight: bold;
-  margin-top: 2rem;
-
+  margin-top: 1rem;
+  text-align: center; /* Center align text */
 }
 
-.fillchoice--p{
-
-  margin-top: 0;
-  color:black;
-
+.fillchoice--div {
+  border: 1px solid #ddd; /* Light border for the container */
+  width: 100%; /* Full width */
+  max-width: 26rem; /* Fixed max-width */
+  height: 30rem; /* Fixed height */
+  margin: 0.5rem auto; /* Center the box */
+  padding: 1rem;
+  background-color: #fff; /* White background */
+  border-radius: 0.5rem; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.fillchoice--div{
-
-  border: 1px solid black;
-  width: 415px;
-  height: 450px;
-  margin: 9px;
-  padding: 1.6rem 5.2rem;
-  background-color:rgb(255, 252, 248);
-
-}
-
-.fillchoice--aside{
-   padding: 2rem 1rem;
-   /* background-color: blue; */
-  
-}
-
-.fillchoice--div h4{
+.fillchoice--div h4 {
   font-family: 'Rounded Mplus 1c', sans-serif;
-  font-size: 21px;
-  margin-bottom: 19px;
+  font-size: 1.3rem; /* Font size adjusted to fit the design */
+  margin-bottom: 1rem; /* Spacing below the heading */
+  text-align: center; /* Center align text */
 }
 
-.fillchoice--label
-{
+.fillchoice--label {
   font-family: 'Radio Canada', sans-serif;
-  font-size: 15px;
+  font-size: 0.9rem; /* Font size adjusted to fit the design */
   font-weight: bold;
   display: block;
+  margin-bottom: 0.5rem; /* Space between label and input */
 }
 
-
-.fillchoice--input
-{
-
-  padding: 8px;
-  width: 16rem;
-  border-radius: 5px;
-  border: 1px solid black;
-  margin-bottom: 30px;
-
+.fillchoice--input {
+  padding: 0.5rem;
+  width: 100%; /* Full width */
+  max-width: 16rem; /* Fixed max-width */
+  border-radius: 0.3rem;
+  border: 1px solid #ddd; /* Light border */
+  margin-bottom: 1rem; /* Space below input */
 }
 
-.fillchoice--ul{
+.fillchoice--ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem; /* Space between list items */
+  padding: 0;
+  margin: 0;
+  list-style: none; /* Remove bullet points */
+}
 
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-
-  }
-
-  .fillchoice-draggable-li{
-
-  }
-
-
-.fillchoice--li{
-
+.fillchoice--li {
   position: relative;
-  padding: 5px;
+  padding: 0.5rem;
   list-style: none;
   cursor: pointer;
   margin: 0.5rem;
+  background-color: #fff; /* White background */
+  border: 1px solid #ddd; /* Light border */
+  border-radius: 0.5rem; /* Rounded corners */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
-
-.fillchoice--li-img{
-
-  height: 43px;
-  width: 125px;
-  /* width:fit-content;
-  height: fit-content; */
+.fillchoice--li-img {
+  height: 4.5rem; /* Height adjusted */
+  width: 12.5rem; /* Width adjusted */
   display: block;
-  z-index: 1;
-  border-radius: 5px;
-  filter:brightness(0.8);
-  
+  border-radius: 0.3rem; /* Rounded corners */
+  filter: brightness(0.8);
 }
 
-
-.fillchoice--li-img-two{
-
-  height: 53px;
-  width: 145px;
-  /* width:fit-content;
-  height: fit-content; */
+.fillchoice--li-img-two {
+  height: 5.3rem; /* Height adjusted */
+  width: 14.5rem; /* Width adjusted */
   display: block;
-  z-index: 1;
-  border-radius: 5px;
-  filter:brightness(0.8);
-  
+  border-radius: 0.3rem; /* Rounded corners */
+  filter: brightness(0.8);
 }
 
-.fillchoice--li-span{
+.fillchoice--li-span {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 16px;
+  font-size: 1rem; /* Font size adjusted */
   z-index: 10;
-  text-align: center;
-  /* line-height: 1; */
+  color: #fff; /* White text for contrast */
 }
 
-.fillchoice--draggable-span{
- 
+.fillchoice--draggable-span {
   position: absolute;
   top: 50%;
   left: 30%;
   transform: translate(-50%, -50%);
-  font-size: 16px;
+  font-size: 1rem; /* Font size adjusted */
   z-index: 10;
-  text-align: center;
-
+  color: #fff; /* White text for contrast */
 }
 
-.fillchoice--li-span-two{
+.fillchoice--li-span-two {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 16px;
+  font-size: 1rem; /* Font size adjusted */
   z-index: 10;
-  text-align: center;
-
+  color: #fff; /* White text for contrast */
 }
 
-.fillchoice--draggable-span-two
-{
+.fillchoice--draggable-span-two {
   position: absolute;
   top: 50%;
   left: 35%;
   transform: translate(-50%, -50%);
-  font-size: 16px;
+  font-size: 1rem; /* Font size adjusted */
   z-index: 10;
-  text-align: center;
+  color: #fff; /* White text for contrast */
 }
 
-
-
-
-.preferences
-{
-  height: 250px;
+.preferences {
+  height: 15rem; /* Adjusted height */
   color: white;
   position: relative;
-
+  background-color: #333; /* Dark background */
+  padding: 1rem;
+  border-radius: 0.5rem; /* Rounded corners */
 }
 
-.fillchoice--button{
-
-    background-color: #3097D1;
-    background-color: #D14D30;;
-    width: 4rem;
-    border: none;
-    border-radius: 5px;
-    padding: 0.6rem 0.6rem;
-    margin-top: 5px;
-    font-size: 11px;
-    margin-left: 5.2rem;
-    cursor: pointer;
-    color:white;
+.fillchoice--button {
+  background-color: #D14D30; /* Orange background */
+  width: 4rem;
+  border: none;
+  border-radius: 0.3rem;
+  padding: 0.6rem;
+  margin-top: 1rem; /* Spacing above the button */
+  font-size: 0.875rem; /* Font size adjusted */
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
+
+.fillchoice--button:hover {
+  background-color: #b04d30; /* Darker shade on hover */
+}
+
 
 
 /* -----------Students NotAlloted---------- */
 
 .wrapper{
-  background-color: #FAF8EE;
+  background-color: #E2E8F0;
   display: flex;
   flex-direction: column;
   justify-content: center;

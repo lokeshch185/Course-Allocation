@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import AdminNavBar from "./AdminNavbar";
+import NavBar from "../student-components/NavBar";
 import DataTable from "react-data-table-component"
 
 export default function StudentsEnrolled() {
@@ -51,7 +52,7 @@ export default function StudentsEnrolled() {
 
     return (
         <>
-        <AdminNavBar/>
+        <NavBar/>
         {/* <div style={{color:"black"}}>
             <h1>{requiredCourse.name} Classroom 👨🏼‍🏫👩🏼‍🏫 </h1>
             <h2>Course Incharge : Prof. {requiredCourse.prof_Incharge}</h2>

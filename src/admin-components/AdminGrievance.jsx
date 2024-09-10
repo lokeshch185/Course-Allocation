@@ -27,7 +27,7 @@ export default function AdminGrievance() {
     return (
         <>
             <AdminNavBar />
-            <div className="p-6 bg-gray-100 min-h-screen">
+            <div className="p-6 bg-gray-200 min-h-screen">
                 <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {allGrievance.map((each) => (
                         <div

@@ -1,24 +1,25 @@
-import React , { useEffect , useState}from "react";
+import React, { useEffect, useState } from "react";
 import NavBar from "./NavBar";
 import cookingImg from "../images/cooking.png";
-import { DndProvider } from "react-dnd";
-import { HTML5Backend } from "react-dnd-html5-backend";
 import Drag from "./Drag";
 import { useDrop } from "react-dnd";
 import axios from "axios";
 
 export default function FillChoice(props) {
-  // const { courses } = props;
-  const [courses, setCourses] = useState([])
+  const [courses, setCourses] = useState([]);
 
-  useEffect((() => {
-    axios.get("http://localhost:4000/course/allAvilableCourse")
+  useEffect(() => {
+    axios
+      .get("http://localhost:4000/course/allAvilableCourse")
       .then((response) => {
-        setCourses(response.data.courseDocs)
+        setCourses(response.data.courseDocs);
       })
-  }), [])
+      .catch((error) => {
+        console.error("Error fetching courses: ", error);
+      });
+  }, []);
 
-  const [preferenceData, setPreferenceData] = React.useState({
+  const [preferenceData, setPreferenceData] = useState({
     sem: "",
     preference: [],
   });
@@ -31,119 +32,99 @@ export default function FillChoice(props) {
     }),
   }));
 
-  //to check courses
-  // courses.map((course)=>{
-  //   console.log("course: \n courseid "+ course.id + "coursename: "+course.coursename )
-  // })
-
   const addImageToDiv = (_id) => {
-    console.log("id " + _id);
-
-    const data = courses.filter((course) => String(_id) === String(course._id));
-
-    setPreferenceData((prevPreferenceData) => ({
-      ...prevPreferenceData,
-      preference: [...prevPreferenceData.preference, data[0]],
-    }));
+    const data = courses.find((course) => String(_id) === String(course._id));
+    if (data) {
+      setPreferenceData((prevPreferenceData) => ({
+        ...prevPreferenceData,
+        preference: [...prevPreferenceData.preference, data],
+      }));
+    }
   };
 
-  
-
-  
-  function handleChange(event) {
+  const handleChange = (event) => {
     const { value, name } = event.target;
-
-    setPreferenceData((prevpreferenceData) => {
-      return {
-        ...prevpreferenceData,
-        [name]: value,
-        
-      };
-    });
-  }
- 
- console.log(preferenceData) 
-
-  //get the array from backend
-  React.useEffect(function () {
-    // console.log("use effect");
-  }, []);
+    setPreferenceData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
 
   return (
     <>
       <NavBar />
+      <main className="flex flex-col items-center p-8 bg-gray-50 min-h-screen">
+        <div className="w-full max-w-4xl flex flex-col lg:flex-row gap-8">
+          <aside className="w-full lg:w-1/2 bg-white p-6 rounded-lg shadow-lg border-l-4 border-slate-600">
+            <h4 className="text-lg font-semibold mb-4 text-slate-800">
+              Available Courses
+            </h4>
+            <ul className="space-y-4">
+              {courses.map((course) => (
+                <li
+                  key={course._id}
+                  className="flex items-center space-x-4 p-4 bg-slate-50 rounded-md shadow-sm"
+                >
+                  <img
+                    src={cookingImg}
+                    alt="course-img"
+                    className="w-12 h-12"
+                  />
+                  <span className="text-gray-700 text-lg">{course.name}</span>
+                </li>
+              ))}
+            </ul>
+          </aside>
 
-      <div className="fillchoice--outerdiv">
-        <aside className="fillchoice--aside">
-          <ul className="fillchoice--ul">
-            {courses.map((course) => (
-              <Drag id={course._id} name={course.name} />
-            ))}
-          </ul>
-        </aside>
+          <section className="w-full lg:w-1/2 bg-white p-6 rounded-lg shadow-lg border-l-4 border-slate-600">
+            <p className="mb-4 text-gray-600">
+              Courses will be allotted on a first-come, first-serve basis.
+            </p>
 
-        <section className="fillchoice--section">
-          <p className="block">
-            Courses will be alloted on first come, first serve basis
-          </p>
-
-          <div className="fillchoice--div">
-            <h4>Preference form</h4>
-
-            <div>
-              <label htmlFor="semid" className="fillchoice--label">
+            <div className="mb-6">
+              <label htmlFor="semid" className="block text-gray-700 mb-2">
                 Sem
               </label>
               <input
                 type="number"
                 id="semid"
                 name="sem"
-                onChange={handleChange}
                 value={preferenceData.sem}
-                placeholder="SEM"
-                className="fillchoice--input"
+                onChange={handleChange}
+                placeholder="Enter Sem"
+                className="w-full px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:border-slate-600"
               />
             </div>
 
-            {/* <p className="fillchoice--label">Enter 3 preferences</p> */}
             <div
               ref={drop}
-              className="fillchoice--input preferences"
-              onChange={handleChange}
+              className="bg-slate-50 p-4 rounded-md shadow-inner min-h-[150px]"
             >
-              {/* <label htmlFor="preferenceid" className="fillchoice--label">
-                  Enter 3 preferences
-                </label>  */}
-              {/* <input
-                // ref={drop} 
-                type="text"
-                id="preferenceid"
-                name="preference"
-                onChange={handleChange}
-                value={preferenceData.preference}
-                className="fillchoice--input preferences"
-              />  */}
-
-              {preferenceData.preference.map((element) => {
-                if (preferenceData.preference.length > 0)
-                { 
-                  return (
-                    <Drag
-                      key={element._id}
-                      id={element._id}
-                      name={element.name}
-                    />
-                  );
-                }
-              }
+              <h4 className="text-lg font-semibold mb-4 text-slate-800">
+                Selected Preferences
+              </h4>
+              {preferenceData.preference.length > 0 ? (
+                preferenceData.preference.map((element) => (
+                  <Drag
+                    key={element._id}
+                    id={element._id}
+                    name={element.name}
+                  />
+                ))
+              ) : (
+                <p className="text-gray-500">No preferences selected yet.</p>
               )}
-
-             
             </div>
-          </div>
-          <button type="submit" className="fillchoice--button">SUBMIT</button>
-        </section>
-      </div>
+
+            <button
+              type="submit"
+              className="w-full mt-6 bg-slate-600 text-white py-2 rounded-md shadow-md hover:bg-slate-700"
+            >
+              Submit
+            </button>
+          </section>
+        </div>
+      </main>
     </>
   );
 }

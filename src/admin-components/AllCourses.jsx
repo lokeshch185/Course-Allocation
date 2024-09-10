@@ -36,7 +36,7 @@ export default function AllCourses(props) {
     <>
       <AdminNavBar />
 
-      <main className="allcourse--main flex flex-wrap justify-center p-6 gap-6 bg-gray-100">
+      <main className="allcourse--main flex flex-wrap justify-center p-6 gap-6 bg-gray-200">
         {courses.map((course) => (
           <div
             className="bg-white rounded-lg shadow-lg overflow-hidden w-72 h-96 transition-transform transform hover:scale-105 "
