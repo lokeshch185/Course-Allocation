@@ -39,7 +39,7 @@ export default function AllCourses(props) {
       <main className="allcourse--main flex flex-wrap justify-center p-6 gap-6 bg-gray-200">
         {courses.map((course) => (
           <div
-            className="bg-white rounded-lg shadow-lg overflow-hidden w-72 h-96 transition-transform transform hover:scale-105 "
+            className="bg-white rounded-lg shadow-lg overflow-hidden w-72 h-96  "
             key={course._id}
           >
             <img
@@ -61,13 +61,13 @@ export default function AllCourses(props) {
               <div className="flex justify-between">
                 <Link
                   to={`/studentsenrolled/${course._id}`}
-                  className="bg-blue-500 text-white py-2 px-4 rounded-md shadow hover:bg-blue-600 transition-colors duration-300"
+                  className="bg-blue-600 text-white py-2 px-4 rounded-md shadow hover:bg-blue-600 transition-colors duration-300"
                 >
                   Details
                 </Link>
                 <button
                   onClick={() => allotCourseHandle(course.name)}
-                  className="bg-green-500 text-white py-2 px-4 rounded-md shadow hover:bg-green-600 transition-colors duration-300"
+                  className="bg-orange-600 text-white py-2 px-4 rounded-md shadow hover:bg-orange-700 transition-colors duration-300"
                 >
                   Allot
                 </button>

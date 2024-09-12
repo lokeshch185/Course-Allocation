@@ -1,4 +1,3 @@
-
 import React from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -6,10 +5,9 @@ import loginImage from '../images/login.png'; // Background image
 
 export default function Login() {
     const navigate = useNavigate();
-    const [redirect, setRedirect] = React.useState(false);
-    const [username, setUsername] = React.useState("");
     const [formData, setFormData] = React.useState({
         role: "Student",
+        username: "",
         password: "",
         forget: false,
     });
@@ -24,29 +22,23 @@ export default function Login() {
 
     async function handleSubmit(event) {
         event.preventDefault();
-        const { role, password } = formData;
+        const { username, role, password } = formData;
 
-        console.log(username, password, role);
-
-        await axios
-            .post(
+        try {
+            await axios.post(
                 "http://localhost:4000/auth/login",
                 { username, password, role },
                 { withCredentials: true }
-            )
-            .then((response) => {
-                alert("User Logged In Successfully");
-                setRedirect(true);
-            })
-            .catch((error) => {
-                alert("Error While Logging in", error.message);
-            });
+            );
+            // alert("User Logged In Successfully");
 
-        if (redirect && role === "Admin") {
-            navigate("/allcourses");
-        }
-        if (redirect && role === "Student") {
-            navigate("/dashboard");
+            if (role === "Admin") {
+                navigate("/allcourses");
+            } else if (role === "Student") {
+                navigate("/dashboard");
+            }
+        } catch (error) {
+            alert("Error While Logging in: " + error.message);
         }
     }
 
@@ -61,26 +53,26 @@ export default function Login() {
 
     return (
         <section className="flex items-center justify-between min-h-screen bg-cover bg-center relative"
-                 style={{ backgroundImage: `url(${loginImage})` }}>
+            style={{ backgroundImage: `url(${loginImage})` }}>
             <div className="absolute inset-0 bg-black opacity-60"></div> {/* Overlay for better contrast */}
-            
+
             {/* Left Side Title */}
             <div className="relative z-10 text-white px-12 lg:px-24 w-2/3">
                 <h1 className="text-6xl font-bold mb-5">COURSE ALLOCATION SYSTEM</h1>
                 <h1 className="text-2xl mb-10">Streamline your course allocation with ease</h1>
             </div>
-            
+
             {/* Sign In Form */}
             <form
                 onSubmit={handleSubmit}
-                className="bg-white bg-opacity-90 shadow-xl rounded-xl px-8 py-10 z-10 w-full max-w-lg mx-20 relative backdrop-blur-md"
+                className="bg-gray-200 bg-opacity-90 shadow-xl rounded-xl px-8 py-10 z-10 w-full max-w-lg mx-20 relative backdrop-blur-md"
             >
                 <div className="text-center mb-6">
-                    <h4 className="text-4xl font-semibold text-gray-800">Sign in</h4>
+                    <h4 className="text-4xl font-semibold text-black">Sign in</h4>
                 </div>
 
                 <div className="mb-4">
-                    <label htmlFor="roleid" className="block text-gray-700 text-sm font-medium mb-2">
+                    <label htmlFor="roleid" className="block text-gray-950 text-sm font-medium mb-2">
                         Role
                     </label>
                     <select
@@ -88,7 +80,7 @@ export default function Login() {
                         id="roleid"
                         onChange={handleChange}
                         value={formData.role}
-                        className="shadow-md appearance-none border rounded-lg w-full py-3 px-3 text-gray-300 focus:outline-none focus:shadow-outline"
+                        className="shadow-md appearance-none border rounded-lg w-full py-3 px-3 text-black bg-stone-200 focus:outline-none focus:shadow-outline"
                     >
                         <option value="Student">Student</option>
                         <option value="Admin">Admin</option>
@@ -96,21 +88,22 @@ export default function Login() {
                 </div>
 
                 <div className="mb-4">
-                    <label htmlFor="nameid" className="block text-gray-700 text-sm font-medium mb-2">
+                    <label htmlFor="usernameid" className="block text-gray-950 text-sm font-medium mb-2">
                         Name
                     </label>
                     <input
                         type="text"
-                        id="nameid"
+                        name="username"
+                        id="usernameid"
                         placeholder="Name"
-                        onChange={(ev) => setUsername(ev.target.value)}
-                        value={username}
-                        className="shadow-md appearance-none border rounded-lg w-full py-3 px-3 text-gray-200 focus:outline-none focus:shadow-outline"
+                        onChange={handleChange}
+                        value={formData.username}
+                        className="shadow-md  border rounded-lg w-full py-3 px-3 text-black bg-stone-200 focus:outline-none focus:shadow-outline"
                     />
                 </div>
 
                 <div className="mb-4">
-                    <label htmlFor="passwordid" className="block text-gray-700 text-sm font-medium mb-2">
+                    <label htmlFor="passwordid" className="block text-gray-950 text-sm font-medium mb-2">
                         Password
                     </label>
                     <input
@@ -120,7 +113,7 @@ export default function Login() {
                         placeholder="Password"
                         onChange={handleChange}
                         value={formData.password}
-                        className="shadow-md appearance-none border rounded-lg w-full py-3 px-3 text-gray-200 focus:outline-none focus:shadow-outline"
+                        className="shadow-md appearance-none border rounded-lg w-full py-3 px-3 text-black bg-slate-200 focus:outline-none focus:shadow-outline"
                     />
                 </div>
 
@@ -131,12 +124,13 @@ export default function Login() {
                         name="forget"
                         checked={formData.forget}
                         onChange={handleChange}
-                        className="mr-2"
+                        className="h-5 w-5 border border-gray-400 rounded-md checked:border-transparent focus:outline-none mr-2"
                     />
-                    <label className="text-sm text-gray-800" htmlFor="forget">
+                    <label className="text-sm text-gray-950" htmlFor="forget">
                         Forget password
                     </label>
                 </div>
+
 
                 <button
                     type="submit"
@@ -145,7 +139,7 @@ export default function Login() {
                     Sign in
                 </button>
 
-                <p className="mt-6 text-center text-gray-700">
+                <p className="mt-6 text-center text-gray-950">
                     Don't have an account?{" "}
                     <a href={nextpage} className="text-blue-500 hover:underline">
                         Register Here
@@ -155,4 +149,3 @@ export default function Login() {
         </section>
     );
 }
-

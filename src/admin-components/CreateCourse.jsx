@@ -35,7 +35,7 @@ const CreateCourse = () => {
   }
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100 p-6">
+    <div className="flex justify-center items-center  bg-gray-100 p-6">
       <div className="bg-white rounded-lg shadow-lg w-full max-w-lg p-8">
         <h1 className="text-5xl font-bold text-center mb-6 text-black">Create Course</h1>
         <form onSubmit={saveHandler}>
@@ -49,7 +49,7 @@ const CreateCourse = () => {
               placeholder="Enter course name"
               value={courseName}
               onChange={(ev) => setCourseName(ev.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-2 border bg-white text-black border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
 
@@ -63,7 +63,7 @@ const CreateCourse = () => {
               placeholder="Enter intake capacity"
               value={intake}
               onChange={(ev) => setIntake(ev.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-2 border bg-white text-black border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
 
@@ -77,7 +77,7 @@ const CreateCourse = () => {
               placeholder="Enter instructor name"
               value={profName}
               onChange={(ev) => setProfName(ev.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-2 border bg-white text-black border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
 
@@ -105,9 +105,9 @@ const CreateCourse = () => {
           <div className="flex justify-center">
             <button
               type="submit"
-              className="bg-blue-500 text-white py-2 px-4 rounded-md shadow-lg hover:bg-blue-600 transition-colors duration-300"
+              className="bg-blue-700 text-white py-2 px-4 rounded-md shadow-lg hover:bg-blue-600 transition-colors duration-300"
             >
-              Save Course
+              Add Course
             </button>
           </div>
         </form>

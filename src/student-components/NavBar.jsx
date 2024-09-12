@@ -15,10 +15,10 @@ export default function NavBar() {
     }
 
     return (
-        <nav className="bg-gray-400 shadow shadow-gray-300 w-full border-none">
+        <nav className="bg-sky-700 shadow shadow-gray-300 w-full border-none">
             <div className="h-28 md:h-16 md:px-10 w-full flex items-center justify-between flex-wrap md:flex-nowrap">
                 {/* Logo */}
-                <div className="text-slate-950 md:order-1 flex items-center gap-2">
+                <div className="text-white md:order-1 flex items-center gap-2">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-10 w-10"
@@ -40,16 +40,16 @@ export default function NavBar() {
                 </div>
 
                 {/* Navigation Links */}
-                <ul className="text-black order-3 w-full md:w-auto md:order-2 flex font-semibold justify-between md:space-x-4">
+                <ul className="text-white order-3 w-full md:w-auto md:order-2 flex font-semibold justify-between md:space-x-4">
                     <li className="md:px-4 md:py-2 hover:text-slate-800 transition duration-200">
                         <Link to="/dashboard">Dashboard</Link>
                     </li>
                     <li className="md:px-4 md:py-2 hover:text-slate-800 transition duration-200">
                         <Link to="/allcoursesstudent">All Courses</Link>
                     </li>
-                    <li className="md:px-4 md:py-2 hover:text-slate-800 transition duration-200">
+                    {/* <li className="md:px-4 md:py-2 hover:text-slate-800 transition duration-200">
                         <Link to="/recommend">Recommend Books</Link>
-                    </li>
+                    </li> */}
                     <li className="md:px-4 md:py-2 hover:text-slate-800 transition duration-200">
                         <Link to="/fillChoice">Fill Choice</Link>
                     </li>
@@ -62,7 +62,7 @@ export default function NavBar() {
                 <div className="order-2 md:order-3">
                     <button
                         onClick={logout}
-                        className="px-4 py-2 bg-slate-950 hover:bg-slate-600 text-gray-50 rounded-xl flex items-center gap-2 transition duration-300 ease-in-out transform hover:scale-105"
+                        className="px-4 py-2 bg-white hover:bg-gray-200 text-black rounded-3xl flex items-center gap-2 transition duration-300 ease-in-out transform hover:scale-105"
                     >
                         <LogoutIcon className="h-5 w-5" />
                         <span>Logout</span>

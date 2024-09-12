@@ -47,10 +47,11 @@ export default function EditCourse() {
     return (
         <>
             <AdminNavBar />
+            <CreateCourse />
             <main className="allcourse--main flex flex-wrap justify-center p-6 gap-6 bg-gray-200">
                 {courses.map((course) => (
                     <div
-                        className="bg-white rounded-lg shadow-lg overflow-hidden w-72 h-96 transition-transform transform hover:scale-105"
+                        className="bg-white rounded-lg shadow-lg overflow-hidden w-72 h-96 "
                         key={course._id}
                     >
                         <img
@@ -78,22 +79,22 @@ export default function EditCourse() {
                                 </Link>
                                 <button
                                     onClick={() => allotCourseHandle(course.name)}
-                                    className="bg-green-500 text-white py-2 px-4 rounded-md shadow hover:bg-green-600 transition-colors duration-300"
+                                    className="bg-orange-600 text-white py-2 px-4 rounded-md shadow hover:bg-orange-700 transition-colors duration-300"
                                 >
                                     Allot
                                 </button>
                                 <button
                                     onClick={() => deleteHandler(course._id)}
-                                    className="bg-red-500 text-white py-2 px-4 rounded-md shadow hover:bg-red-600 transition-colors duration-300 flex items-center"
+                                    className="  py-2 px-4  ttransition-transform transform hover:scale-105 flex items-center"
                                 >
-                                    <img src={deleteImg} alt="delete" className="h-6 w-6"/>
+                                    <img src={deleteImg} alt="delete" className="h-7 w-auto"/>
                                 </button>
                             </div>
                         </div>
                     </div>
                 ))}
             </main>
-            <CreateCourse />
+            
         </>
     )
 }

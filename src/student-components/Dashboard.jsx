@@ -90,6 +90,7 @@ export default function Dashboard(props) {
       const username = decodedToken.username;
       axios.post("http://localhost:4000/auth/searchUser", { username })
         .then((response) => {
+         
           setUserDetails(response.data.userDoc);
         })
         .catch((error) => {
@@ -106,8 +107,12 @@ export default function Dashboard(props) {
     <>
       <NavBar />
 
-      <main className="flex flex-col items-center p-8 bg-gray-200 min-h-screen">
-        <div className="bg-slate-100 p-6 rounded-lg shadow-lg mb-6 w-full max-w-md text-slate-900">
+      <main className="grid grid-cols-2 p-8 bg-gray-200 min-h-screen max-h-screen">
+
+        <div className=" bg-slate-100 p-6 rounded-lg shadow-lg mb-6 w-full  text-slate-900">
+        <div className='flex justify-center items-center mb-4'>
+          <img src='./LogoSPIT.png'/>
+        </div>
           <h4 className="text-2xl font-bold text-slate-800 mb-2">User Information</h4>
           <p className="text-lg">
             <span className="font-semibold">Name:</span> {decodedToken.username}
@@ -120,11 +125,11 @@ export default function Dashboard(props) {
           </p>
         </div>
 
-        <div className="w-full max-w-3xl">
+        <div className="grid w-full max-w-3xl ma">
           {userDetails.prev_Taken_Courses && userDetails.prev_Taken_Courses.length > 0 ? (
             <div className="grid grid-cols-1 gap-6">
               {userDetails.prev_Taken_Courses.map((course, i) => (
-                <div key={i} className="bg-white p-6 rounded-lg shadow-lg flex flex-col items-start border-l-4 border-slate-950">
+                <div key={i} className="bg-white p-6 m-2 h-fit rounded-lg shadow-lg flex flex-col items-start border-l-4 border-slate-950">
                   <button className="bg-slate-950 text-white py-2 px-6 rounded-md text-sm font-semibold mb-4">Sem {props.sem}</button>
                   <div className="text-gray-700">
                     <p className="text-lg">
