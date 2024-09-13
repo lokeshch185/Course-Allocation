@@ -11,7 +11,8 @@ const CourseSchema = new Schema({
   // enrolled : {type : Array , default : [] }
   enrolled : [{ 
     type: Schema.Types.ObjectId,
-    ref: 'User'
+    ref: 'User',
+    unique : true
   }]
 }); 
 
